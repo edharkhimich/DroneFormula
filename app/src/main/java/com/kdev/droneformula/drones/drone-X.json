@@ -1,0 +1,10 @@
+{
+  "drone" : {
+    "currentLoadInFlight" : [
+      {"ascension" : },
+      {"descent" : },
+      {"translation" : }
+    ],
+    "forcedLandingCharge" : 
+  }
+}
