@@ -1,6 +1,6 @@
 package com.kdev.droneformula;
 
-import com.kdev.droneformula.formulas.HaversineDistanceHelper;
+import com.kdev.droneformula.formulae.HaversineDistanceHelper;
 
 public class Main {
 

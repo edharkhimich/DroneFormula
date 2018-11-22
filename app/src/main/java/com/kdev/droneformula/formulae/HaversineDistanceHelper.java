@@ -1,4 +1,8 @@
-package com.kdev.droneformula.formulas;
+package com.kdev.droneformula.formulae;
+
+import android.util.Log;
+
+import static android.content.ContentValues.TAG;
 
 public class HaversineDistanceHelper {
 
@@ -21,25 +25,25 @@ public class HaversineDistanceHelper {
         this.endLong = endLong;
     }
 
-    private Double getLatDist(){
+    public Double getLatDist(){
         return toRad(endLat - startLat);
     }
 
-    private Double getLongDist(){
+    public Double getLongDist(){
         return toRad(endLong - startLong);
     }
 
-    private Double toRad(Double value) {
+    public Double toRad(Double value) {
         return value * Math.PI / R_DEGREES;
     }
 
-    private Double getA() {
+    public Double getA() {
         return Math.sin(getLatDist() / 2) * Math.sin(getLatDist() / 2) +
                Math.cos(toRad(startLat)) * Math.cos(toRad(endLat)) *
                Math.sin(getLongDist() / 2) * Math.sin(getLongDist() / 2);
     }
 
-    private Double getC() {
+    public Double getC() {
         return 2 * Math.atan2(Math.sqrt(getA()), Math.sqrt(1-getA()));
     }
 
