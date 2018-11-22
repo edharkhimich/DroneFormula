@@ -1,12 +1,12 @@
 {
   "config": {
     "verticalSpeeds" : [
-      {"ascension" : },
-      {"descent" : }
+      {"ascension" : 5},
+      {"descent" : 3}
     ],
     "energy" : [
-      {"numberOfBatteries" : },
-      {"capacity" : }
+      {"numberOfBatteries" : 1},
+      {"capacity" : 3950}
     ],
     "payload" :
   }

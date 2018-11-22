@@ -40,7 +40,7 @@ public class HaversineDistanceHelper {
     }
 
     private Double getC() {
-        return Math.atan2(Math.sqrt(getA()), Math.sqrt(1-getA())) * 2;
+        return 2 * Math.atan2(Math.sqrt(getA()), Math.sqrt(1-getA()));
     }
 
     public Double getDistance() {

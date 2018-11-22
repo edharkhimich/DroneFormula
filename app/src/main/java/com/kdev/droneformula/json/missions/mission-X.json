@@ -1,12 +1,12 @@
 {
   "mission" : {
-    "horizontalSpeed" : ,
-    "altitude" : ,
+    "horizontalSpeed" : 22,
+    "altitude" : 5000,
     "points" : [
-      "startLatitude" : ,
-      "startLongitude" : ,
-      "endLatitude" : ,
-      "endLongitude" :
+      {"startLatitude" : },
+      {"startLongitude" : },
+      {"endLatitude" : },
+      {"endLongitude": }:
     ]
   }
 }
