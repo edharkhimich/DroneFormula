@@ -1,0 +1,13 @@
+{
+  "config": {
+    "verticalSpeeds" : [
+      {"ascension" : },
+      {"descent" : }
+    ],
+    "energy" : [
+      {"numberOfBatteries" : },
+      {"capacity" : }
+    ],
+    "payload" :
+  }
+}
