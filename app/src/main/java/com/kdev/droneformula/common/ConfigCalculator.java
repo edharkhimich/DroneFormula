@@ -1,45 +1,62 @@
 package com.kdev.droneformula.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kdev.droneformula.models.Drone;
+import com.kdev.droneformula.models.configuration.Config;
+import com.kdev.droneformula.models.drone.Drone;
+import com.kdev.droneformula.models.mission.Mission;
 
 import java.io.File;
 import java.io.IOException;
 
 public class ConfigCalculator {
 
+    private static final int LANDING_ALTITUDES = 0;
+
     private String configJSON;
     private String droneJSON;
     private String missionJSON;
+
+    private int altitudeTime;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
+
 
     public ConfigCalculator(String configJSON, String droneJSON, String missionJSON) {
         this.configJSON = configJSON;
         this.droneJSON = droneJSON;
         this.missionJSON = missionJSON;
-        startCounting();
+        startCalc();
     }
 
-    private void startCounting(){
-
-    }
-
-
-    private
-
-
-
-    public void parseJSON() {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        File file = new File("/Users/apple/Documents/close/android_projects/DroneFormula/app/src/main/java/com/kdev/droneformula/json/drones/drone-X.json");
-
-        Drone someClass = null;
+    private void startCalc(){
         try {
-            someClass = objectMapper.readValue(file, Drone.class);
+            getAltitudeTime();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        System.out.println(someClass.getForcedLandingCharge());
+    public void getAltitudeTime() throws IOException {
+        int ascensionSpeed = getConfigJson(configJSON).getVerticalSpeeds().get(0).getAscension();
+        int altitude = getMissionJson(missionJSON).getAltitude();
+        System.out.println("altitude " + altitude + "/ assentialSpeed " + ascensionSpeed);
+    }
+
+    public Config getConfigJson(String jsonPath) throws IOException {
+        File file = new File(jsonPath);
+        Config config = objectMapper.readValue(file, Config.class);
+        return config;
+    }
+
+    public Mission getMissionJson(String jsonPath) throws IOException {
+        File file = new File(jsonPath);
+        Mission mission = objectMapper.readValue(file, Mission.class);
+        return mission;
+    }
+
+    public Drone getDroneJson(String jsonPath) throws IOException {
+        File file = new File(jsonPath);
+        Drone drone = objectMapper.readValue(file, Drone.class);
+        return drone;
     }
 }

@@ -1,7 +1,5 @@
 package com.kdev.droneformula.models.mission;
 
-import android.graphics.Point;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,7 +25,7 @@ public class Mission {
         @JsonProperty("altitude")
         private Integer altitude;
         @JsonProperty("points")
-        private List<Point> points = null;
+        private List<Points> points = null;
         @JsonIgnore
         private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -52,12 +50,12 @@ public class Mission {
         }
 
         @JsonProperty("points")
-        public List<Point> getPoints() {
+        public List<Points> getPoints() {
             return points;
         }
 
         @JsonProperty("points")
-        public void setPoints(List<Point> points) {
+        public void setPoints(List<Points> points) {
             this.points = points;
         }
 

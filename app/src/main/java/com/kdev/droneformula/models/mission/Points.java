@@ -19,7 +19,7 @@ import java.util.Map;
         "endLatitude",
         "endLongitude"
 })
-public class Point {
+public class Points {
 
     @JsonProperty("startLatitude")
     private Double startLatitude;
