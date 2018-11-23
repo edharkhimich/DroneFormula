@@ -1,14 +1,8 @@
-//The current load in A per square unit of
-//speed ((m/s)²) on the drone power system
-//when it is flying - as I understand
-//currentLoad will be in 2 times bigger.
 {
-  "drone" : {
     "currentLoadInFlight" : [
       {"ascension" : 10},
       {"descent" : 6},
       {"translation" : 44}
     ],
     "forcedLandingCharge" : 350
-  }
 }
