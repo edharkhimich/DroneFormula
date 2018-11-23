@@ -1,5 +1,6 @@
 package com.kdev.droneformula.models.mission;
 
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,49 +13,36 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "start",
-        "recharge",
-        "end"
+        "rechargerLat ",
+        "rechargerLong "
 })
-public class Points {
+public class Recharge {
 
-    @JsonProperty("start")
-    private Start start;
-    @JsonProperty("recharge")
-    private Recharge recharge;
-    @JsonProperty("end")
-    private End end;
+    @JsonProperty("rechargerLat ")
+    private Double rechargerLat;
+    @JsonProperty("rechargerLong ")
+    private Double rechargerLong;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("start")
-    public Start getStart() {
-        return start;
+    @JsonProperty("rechargerLat ")
+    public Double getRechargerLat() {
+        return rechargerLat;
     }
 
-    @JsonProperty("start")
-    public void setStart(Start start) {
-        this.start = start;
+    @JsonProperty("rechargerLat ")
+    public void setRechargerLat(Double rechargerLat) {
+        this.rechargerLat = rechargerLat;
     }
 
-    @JsonProperty("recharge")
-    public Recharge getRecharge() {
-        return recharge;
+    @JsonProperty("rechargerLong ")
+    public Double getRechargerLong() {
+        return rechargerLong;
     }
 
-    @JsonProperty("recharge")
-    public void setRecharge(Recharge recharge) {
-        this.recharge = recharge;
-    }
-
-    @JsonProperty("end")
-    public End getEnd() {
-        return end;
-    }
-
-    @JsonProperty("end")
-    public void setEnd(End end) {
-        this.end = end;
+    @JsonProperty("rechargerLong ")
+    public void setRechargerLong(Double rechargerLong) {
+        this.rechargerLong = rechargerLong;
     }
 
     @JsonAnyGetter

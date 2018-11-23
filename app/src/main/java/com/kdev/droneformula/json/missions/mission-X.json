@@ -2,11 +2,19 @@
     "horizontalSpeed" : 10,
     "altitude" : 2000,
     "points" : [
-      {"startLatitude" : 49.267881},
-      {"startLongitude" : -100.991429},
-      {"rechargerLat " : 49.269474},
-      {"rechargerLong " : -100.986496},
-      {"endLatitude" : 49.270991},
-      {"endLongitude" : -100.986429}
+      {
+        "start": {
+          "startLatitude": 49.267881,
+          "startLongitude": -100.991429
+        },
+        "recharge": {
+          "rechargerLat ": 49.269474,
+          "rechargerLong ": -100.986496
+        },
+        "end": {
+          "endLatitude": 49.270991,
+          "endLongitude": -100.986429
+        }
+      }
     ]
 }

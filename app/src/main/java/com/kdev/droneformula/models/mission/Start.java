@@ -12,49 +12,36 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "start",
-        "recharge",
-        "end"
+        "startLatitude",
+        "startLongitude"
 })
-public class Points {
+public class Start {
 
-    @JsonProperty("start")
-    private Start start;
-    @JsonProperty("recharge")
-    private Recharge recharge;
-    @JsonProperty("end")
-    private End end;
+    @JsonProperty("startLatitude")
+    private Double startLatitude;
+    @JsonProperty("startLongitude")
+    private Double startLongitude;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("start")
-    public Start getStart() {
-        return start;
+    @JsonProperty("startLatitude")
+    public Double getStartLatitude() {
+        return startLatitude;
     }
 
-    @JsonProperty("start")
-    public void setStart(Start start) {
-        this.start = start;
+    @JsonProperty("startLatitude")
+    public void setStartLatitude(Double startLatitude) {
+        this.startLatitude = startLatitude;
     }
 
-    @JsonProperty("recharge")
-    public Recharge getRecharge() {
-        return recharge;
+    @JsonProperty("startLongitude")
+    public Double getStartLongitude() {
+        return startLongitude;
     }
 
-    @JsonProperty("recharge")
-    public void setRecharge(Recharge recharge) {
-        this.recharge = recharge;
-    }
-
-    @JsonProperty("end")
-    public End getEnd() {
-        return end;
-    }
-
-    @JsonProperty("end")
-    public void setEnd(End end) {
-        this.end = end;
+    @JsonProperty("startLongitude")
+    public void setStartLongitude(Double startLongitude) {
+        this.startLongitude = startLongitude;
     }
 
     @JsonAnyGetter
@@ -66,5 +53,4 @@ public class Points {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-
 }
