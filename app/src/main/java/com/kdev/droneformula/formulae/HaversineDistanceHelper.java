@@ -1,9 +1,5 @@
 package com.kdev.droneformula.formulae;
 
-import android.util.Log;
-
-import static android.content.ContentValues.TAG;
-
 public class HaversineDistanceHelper {
 
     private final int EARTH_RADIUS = 6371;

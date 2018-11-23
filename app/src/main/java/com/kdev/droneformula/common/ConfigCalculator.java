@@ -1,18 +1,18 @@
 package com.kdev.droneformula.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kdev.droneformula.formulae.HaversineDistanceHelper;
 import com.kdev.droneformula.models.configuration.Config;
 import com.kdev.droneformula.models.drone.Drone;
 import com.kdev.droneformula.models.mission.Mission;
-import com.kdev.droneformula.models.mission.Points;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class ConfigCalculator {
 
-    private static final int LANDING_ALTITUDES = 0;
+    private final int LANDING_ALTITUDES = 0;
+    private final int METERS_IN_KM = 1000;
 
     private String configJSON;
     private String droneJSON;
@@ -41,19 +41,36 @@ public class ConfigCalculator {
     }
 
     private void getPointsDistance(){
-//        List<Points> = getMissionJson(missionJSON).getPoints();
         try {
-            System.out.println(getMissionJson(missionJSON).getPoints().get(0).getStart().getStartLatitude());
+            double startLat = getMissionJson(missionJSON).getPoints().get(0).getStart().getStartLatitude();
+            double startLong = getMissionJson(missionJSON).getPoints().get(0).getStart().getStartLongitude();
+            double rechargeLat = getMissionJson(missionJSON).getPoints().get(0).getRecharge().getRechargerLat();
+            double rechargeLong = getMissionJson(missionJSON).getPoints().get(0).getRecharge().getRechargerLong();
+            double endLat = getMissionJson(missionJSON).getPoints().get(0).getEnd().getEndLatitude();
+            double endLong = getMissionJson(missionJSON).getPoints().get(0).getEnd().getEndLongitude();
+
+            checkTripToFirstPoint(startLat, startLong, rechargeLat, rechargeLong);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    private void checkTripToFirstPoint(double xLat, double xLong, double yLat, double yLong) {
+        getTripDistanceInMetres(xLat, xLong, yLat, yLong);
+    }
+
+    private void getTripDistanceInMetres(double xLat, double xLong, double yLat, double yLong) {
+        HaversineDistanceHelper helper = new HaversineDistanceHelper(xLat, xLong, yLat, yLong);
+        double distanceKm = helper.getDistance();
+        double distanceMeters = METERS_IN_KM * distanceKm;
+    }
+
     private void getAltitudeTime() throws IOException {
         int ascensionSpeed = getConfigJson(configJSON).getVerticalSpeeds().get(0).getAscension();
         int altitude = getMissionJson(missionJSON).getAltitude();
-        int altitudeTimeInSec = altitude / ascensionSpeed;
-        System.out.println(altitudeTimeInSec);
+        int altitudeTimeInSec = altitude - LANDING_ALTITUDES / ascensionSpeed;
+        System.out.println("Program in process...");
     }
 
     private Config getConfigJson(String jsonPath) throws IOException {
