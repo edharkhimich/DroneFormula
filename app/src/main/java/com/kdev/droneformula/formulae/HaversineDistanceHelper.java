@@ -6,10 +6,6 @@ import static android.content.ContentValues.TAG;
 
 public class HaversineDistanceHelper {
 
-    /* Made only one method public because we won't need another methods.
-       If we will need some more methods - we can just change it on public.
-    */
-
     private final int EARTH_RADIUS = 6371;
     private final int R_DEGREES = 180;
 

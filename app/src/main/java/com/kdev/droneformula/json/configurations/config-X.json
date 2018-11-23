@@ -8,6 +8,6 @@
       {"numberOfBatteries" : 1},
       {"capacity" : 3950}
     ],
-    "payload" :
+    "payload" : 10
   }
 }
