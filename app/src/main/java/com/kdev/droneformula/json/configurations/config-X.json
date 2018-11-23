@@ -1,5 +1,4 @@
 {
-  "config": {
     "verticalSpeeds" : [
       {"ascension" : 5},
       {"descent" : 3}
@@ -9,5 +8,4 @@
       {"capacity" : 3950}
     ],
     "payload" : 10
-  }
 }

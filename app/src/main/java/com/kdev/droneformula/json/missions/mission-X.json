@@ -1,5 +1,4 @@
 {
-  "mission" : {
     "horizontalSpeed" : 10,
     "altitude" : 2000,
     "points" : [
@@ -10,5 +9,4 @@
       {"endLatitude" : 49.270991},
       {"endLongitude" : -100.986429}
     ]
-  }
 }

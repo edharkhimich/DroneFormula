@@ -6,14 +6,27 @@ import com.kdev.droneformula.models.Drone;
 import java.io.File;
 import java.io.IOException;
 
-public class JSONHandler {
+public class ConfigCalculator {
 
+    private String configJSON;
+    private String droneJSON;
+    private String missionJSON;
 
-    private String JSONPath;
-
-    public JSONHandler(String JSONPath) {
-        this.JSONPath = JSONPath;
+    public ConfigCalculator(String configJSON, String droneJSON, String missionJSON) {
+        this.configJSON = configJSON;
+        this.droneJSON = droneJSON;
+        this.missionJSON = missionJSON;
+        startCounting();
     }
+
+    private void startCounting(){
+
+    }
+
+
+    private
+
+
 
     public void parseJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
